@@ -31,7 +31,7 @@ import { NbPasswordAuthStrategy, NbAuthModule } from '@nebular/auth';
     ProfileComponent,
     BoardAdminComponent,
     BoardModeratorComponent,
-    BoardUserComponent, 
+    BoardUserComponent,
 
 
   ],
@@ -39,24 +39,24 @@ import { NbPasswordAuthStrategy, NbAuthModule } from '@nebular/auth';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule, 
-   
+    HttpClientModule,
+
     FormsModule,
     NbThemeModule.forRoot(),
-    NbLayoutModule,
-    NbSidebarModule.forRoot(),
-    NbMenuModule.forRoot(),
+    // NbLayoutModule,
+    // NbSidebarModule.forRoot(),
+    // NbMenuModule.forRoot(),
     NbEvaIconsModule,
-    
-  
-    NbAuthModule.forRoot({
-      strategies: [
-        NbPasswordAuthStrategy.setup({
-          name: 'email',
-        }),
-      ],
-      forms: {},
-    }),
+
+
+    // NbAuthModule.forRoot({
+    //   strategies: [
+    //     NbPasswordAuthStrategy.setup({
+    //       name: 'email',
+    //     }),
+    //   ],
+    //   forms: {},
+    // }),
   ],
   providers: [httpInterceptorProviders],
   bootstrap: [AppComponent]

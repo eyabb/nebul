@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../_services/auth.service';
 import { StorageService } from '../_services/storage.service';
+import { Router } from '@angular/router';
 import { NgFor } from '@angular/common';
 
 @Component({
@@ -18,7 +19,7 @@ export class LoginComponent implements OnInit {
   errorMessage = '';
   Roles: string[] = [];
 
-  constructor(private authService: AuthService, private storageService: StorageService) { }
+  constructor(private authService: AuthService, private storageService: StorageService,private _router: Router) { }
 
   ngOnInit(): void {
     if (this.storageService.isLoggedIn()) {
@@ -37,7 +38,13 @@ export class LoginComponent implements OnInit {
         this.isLoginFailed = false;
         this.isLoggedIn = true;
         this.Roles = this.storageService.getUser().user.roles[0].name;
-        this.reloadPage();
+        setTimeout(() => {
+          console.log("Delayed for 1 second.");
+          this._router.navigateByUrl('/home');
+        }, 10000);
+        
+        //this.reloadPage()
+        
       },
       error: err => {
         this.errorMessage = err.error.message;

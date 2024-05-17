@@ -37,17 +37,19 @@ export class AppComponent {
       this.username = user.user.username;
     }
 
-    this.eventBusSub = this.eventBusService.on('logout', () => {
+     this.eventBusSub = this.eventBusService.on('logout', () => {
       this.logout();
     });
   }
 
   logout(): void {
+    console.log("ddddd");
+
     this.authService.logout().subscribe({
       next: res => {
-        console.log(res);
+        console.log("ddddd",res);
         this.storageService.clean();
-        window.location.reload();
+        //window.location.reload();
       },
       error: err => {
         console.log(err);
